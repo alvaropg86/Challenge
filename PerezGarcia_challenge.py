@@ -46,27 +46,17 @@ def tresCifras(number):
     if number == "100":
         return "cien"
     else:    
-        cent = number[0]
-        for i in range(len(unidades)): #obtiene numeros del 0 al 9
-            if cent == number_list[i]:
-                c = centenas[i]     
-        return (c + " " + dosCifras(number[1:3]))
+        for i in range(len(unidades)):
+            if number[0] == number_list[i]:  
+                return (centenas[i] + " " + dosCifras(number[1:3]))
 
 def cuatroCifras(number):
-    if number == "1000":
-        return "mil"
-    else:    
-        cent = number[0]
-        for i in range(len(unidades)): #obtiene numeros del 0 al 9
-            if cent == number_list[i]:
-                c = miles[i]     
-        return (c + " " + tresCifras(number[1:4]))
+    for i in range(len(unidades)):
+        if number[0] == number_list[i]: 
+            return (miles[i] + " " + tresCifras(number[1:4]))
 
 def cincoCifras(number):
-    if number == "10000":
-        return " diez mil"
-    else:     
-        return dosCifras(number[0:2]) + " mil " + tresCifras(number[2:5])
+    return dosCifras(number[0:2]) + " mil " + tresCifras(number[2:5])
 
 def seisCifras(number):
     if number[0:3] != "000":
@@ -75,13 +65,10 @@ def seisCifras(number):
         return tresCifras(number[0:3]) + tresCifras(number[3:6])    
 
 def sieteCifras(number):
-    if number == "1000000":
-        return "un millon"
-    else:
-        if int(number[0]) == 1:
-            return "un millon " + seisCifras(number[1:7])
-        if int(number[0]) > 1:
-            return (str(unaCifra(number[0])) + " millones ") + seisCifras(number[1:7])
+    if int(number[0]) == 1:
+        return "un millon " + seisCifras(number[1:7])
+    if int(number[0]) > 1:
+        return (str(unaCifra(number[0])) + " millones ") + seisCifras(number[1:7])
 
 def ochoCifras(number):
         return str(dosCifras(number[0:2]) + " millones " + seisCifras(number[2:8]))
@@ -120,11 +107,13 @@ else:
     if len(number) == 10:
         resultado= diezCifras(number)
     resultadoFinal = re.sub(' +', ' ', resultado)
+    if "millones uno mil" in resultadoFinal:
+        resultadoFinal=resultadoFinal.replace("millones uno mil","millones mil")
+    if "millon uno mil" in resultadoFinal:
+        resultadoFinal=resultadoFinal.replace("millon uno mil","millon mil") 
     if "uno m" in resultadoFinal:
-        resultadoFinal2=resultadoFinal.replace("uno m","un m")
-        print (resultadoFinal2)
-    else:
-        print(resultadoFinal)
+        resultadoFinal=resultadoFinal.replace("uno m","un m")
+    print(resultadoFinal)
 
 
 

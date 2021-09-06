@@ -3,6 +3,7 @@ La siguiente aplicación ha sido creada en Python el 03/09/2021 por Alvaro Perez
 La aplicación permite convertir números en cifras a números en letras.
 
 consideraciones a tener en cuenta:
+- Se necesita tener instalado el lenguaje de programación Python para que pueda ejecutarse.
 - La aplicación se ejecuta por linea de comandos.
 - Solo funciona si cargamos numeros.
 - Solo trabaja con números enteros.
