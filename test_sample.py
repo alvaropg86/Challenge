@@ -1,6 +1,6 @@
 from PerezGarcia_challenge import resolucion
 
 
-def test_answer():
+def test_uno():
     assert resolucion(1) == "uno"
 
