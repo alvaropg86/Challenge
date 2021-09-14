@@ -79,41 +79,44 @@ def nueveCifras(number):
 def diezCifras(number):
     return "mil millones"
 
-number= input("ingrese el numero: ")
+def resolucion(number):
+    if number[0:2] == "00" or number[0:1] =="0" and number != "0":
+        print("no deben contabilizarse ceros al comienzo del numero para que la aplicación funcione")    
+    elif int(number) <0 or int(number) >1000000000:
+        print("el numero se encuentra fuera de rango de la aplicación (0 a 1.000.000.000)")  
+    else:
+        if len(number) == 1:
+            resultado= unaCifra(number)
+        if len(number) == 2:    
+            resultado= dosCifras(number)
+        if len(number) == 3:    
+            resultado= tresCifras(number)
+        if len(number) == 4:    
+            resultado= cuatroCifras(number)
+        if len(number) == 5:    
+            resultado= cincoCifras(number)
+        if len(number) == 6:    
+            resultado= seisCifras(number)
+        if len(number) == 7:    
+            resultado= sieteCifras(number) 
+        if len(number) == 8:
+            resultado= ochoCifras(number)
+        if len(number) == 9:
+            resultado= nueveCifras(number)
+        if len(number) == 10:
+            resultado= diezCifras(number)
+        resultadoFinal = re.sub(' +', ' ', resultado)
+        if "millones uno mil" in resultadoFinal:
+            resultadoFinal=resultadoFinal.replace("millones uno mil","millones mil")
+        if "millon uno mil" in resultadoFinal:
+            resultadoFinal=resultadoFinal.replace("millon uno mil","millon mil") 
+        if "uno m" in resultadoFinal:
+            resultadoFinal=resultadoFinal.replace("uno m","un m")
+        print(resultadoFinal)
 
-if number[0:2] == "00" or number[0:1] =="0" and number != "0":
-    print("no deben contabilizarse ceros al comienzo del numero para que la aplicación funcione")    
-elif int(number) <0 or int(number) >1000000000:
-    print("el numero se encuentra fuera de rango de la aplicación (0 a 1.000.000.000)")  
-else:
-    if len(number) == 1:
-        resultado= unaCifra(number)
-    if len(number) == 2:    
-        resultado= dosCifras(number)
-    if len(number) == 3:    
-        resultado= tresCifras(number)
-    if len(number) == 4:    
-        resultado= cuatroCifras(number)
-    if len(number) == 5:    
-        resultado= cincoCifras(number)
-    if len(number) == 6:    
-        resultado= seisCifras(number)
-    if len(number) == 7:    
-        resultado= sieteCifras(number) 
-    if len(number) == 8:
-        resultado= ochoCifras(number)
-    if len(number) == 9:
-        resultado= nueveCifras(number)
-    if len(number) == 10:
-        resultado= diezCifras(number)
-    resultadoFinal = re.sub(' +', ' ', resultado)
-    if "millones uno mil" in resultadoFinal:
-        resultadoFinal=resultadoFinal.replace("millones uno mil","millones mil")
-    if "millon uno mil" in resultadoFinal:
-        resultadoFinal=resultadoFinal.replace("millon uno mil","millon mil") 
-    if "uno m" in resultadoFinal:
-        resultadoFinal=resultadoFinal.replace("uno m","un m")
-    print(resultadoFinal)
+number= input("ingrese el numero: ")        
+
+resolucion(number)
 
 
 
