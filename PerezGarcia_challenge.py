@@ -112,7 +112,7 @@ def resolucion(number):
             resultadoFinal=resultadoFinal.replace("millon uno mil","millon mil") 
         if "uno m" in resultadoFinal:
             resultadoFinal=resultadoFinal.replace("uno m","un m")
-        print(resultadoFinal)
+        return resultadoFinal
 
 
 
