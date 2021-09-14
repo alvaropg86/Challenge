@@ -80,7 +80,7 @@ def diezCifras(number):
     return "mil millones"
 
 def resolucion(number):
-    if number[0:2] == "00" or number[0:1] =="0" and number != "0":
+    if number[0:2] == "00" or number[0:1] == "0" and number != "0":
         print("no deben contabilizarse ceros al comienzo del numero para que la aplicación funcione")    
     elif int(number) <0 or int(number) >1000000000:
         print("el numero se encuentra fuera de rango de la aplicación (0 a 1.000.000.000)")  
@@ -113,10 +113,6 @@ def resolucion(number):
         if "uno m" in resultadoFinal:
             resultadoFinal=resultadoFinal.replace("uno m","un m")
         print(resultadoFinal)
-
-number= input("ingrese el numero: ")        
-
-resolucion(number)
 
 
 
